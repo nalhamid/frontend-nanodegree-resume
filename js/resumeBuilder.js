@@ -17,7 +17,7 @@ var bio = {
     },
     // Array of skills
     skills: [
-        "css", "html", "php", "wordpress", "JavaScript", "photoshop"
+        "css", "html", "php", "wordpress", "JavaScript"
     ],
     // function to display bio information
     display: function() {
@@ -62,14 +62,14 @@ var education = {
         degree: "BA",
         major: ["Information Technology"],
         dates: 2011,
-        url: "http://example.com"
+        url: "http://ksu.edu.sa/en/"
     }],
     // array of online courses objects
     onlineCourses: [{
         title: "Front-end nanodegree",
         school: "Udacity",
         dates: 2017,
-        url: "http://example.com"
+        url: "https://www.udacity.com/"
     }],
     // function to display education information
     display: function() {
@@ -99,11 +99,13 @@ var education = {
                 var newTitle = HTMLonlineTitle.replace("%data%", online.title);
                 var newSchool = HTMLonlineSchool.replace("%data%", online.school);
                 var newDates = HTMLonlineDates.replace("%data%", online.dates);
+                var newUrl = HTMLonlineURL.replace("%data%", online.url);
                 // url
                 newTitle = newTitle.replace("#", online.url);
+                newUrl = newUrl.replace("#", online.url);
                 // append to HTML
                 $("#education").append(HTMLschoolStart);
-                $(".education-entry:last").append(newTitle, newSchool, newDates);
+                $(".education-entry:last").append(newTitle, newSchool, newDates, newUrl);
 
             });
         }
@@ -119,7 +121,7 @@ var work = {
         title: "Web Developer",
         dates: "may 2014 - Future",
         location: "Riyadh",
-        description: "developed many of projects websites"
+        description: "developed many websites"
     }],
     // function to display work information
     display: function() {
@@ -150,7 +152,7 @@ var projects = {
         description: "internal portal for the commission",
         // array of project images
         images: [
-            "http://example.com"
+            "images/internal-portal.png"
         ]
     }],
     // function to display projects information
@@ -183,5 +185,6 @@ work.display();
 projects.display();
 education.display();
 
+//append map to HTML
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
