@@ -61,14 +61,14 @@ var education = {
         location: "Riyadh",
         degree: "BA",
         major: ["Information Technology"],
-        dates: 2011,
+        dates: "2011",
         url: "http://ksu.edu.sa/en/"
     }],
     // array of online courses objects
     onlineCourses: [{
         title: "Front-end nanodegree",
         school: "Udacity",
-        dates: 2017,
+        dates: "2017",
         url: "https://www.udacity.com/"
     }],
     // function to display education information
@@ -96,13 +96,10 @@ var education = {
             // loop for online couses information
             education.onlineCourses.forEach(function(online) {
                 // assign new info to html
-                var newTitle = HTMLonlineTitle.replace("%data%", online.title);
+                var newTitle = HTMLonlineTitle.replace("%data%", online.title).replace("#", online.url);
                 var newSchool = HTMLonlineSchool.replace("%data%", online.school);
                 var newDates = HTMLonlineDates.replace("%data%", online.dates);
-                var newUrl = HTMLonlineURL.replace("%data%", online.url);
-                // url
-                newTitle = newTitle.replace("#", online.url);
-                newUrl = newUrl.replace("#", online.url);
+                var newUrl = HTMLonlineURL.replace("%data%", online.url).replace("#", online.url);
                 // append to HTML
                 $("#education").append(HTMLschoolStart);
                 $(".education-entry:last").append(newTitle, newSchool, newDates, newUrl);
@@ -148,7 +145,7 @@ var projects = {
     // array of all projects
     projects: [{
         title: "Internal Portal",
-        dates: 2017,
+        dates: "2017",
         description: "internal portal for the commission",
         // array of project images
         images: [
